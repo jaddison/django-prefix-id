@@ -1,0 +1,51 @@
+[project]
+name = "django-prefix-id"
+version = "1.0.0"
+authors = [
+  { name="James Addison", email="addi00@gmail.com" },
+]
+description = "A simple prefix ID Django model field, using UUID to Base62 encoding."
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "django"
+]
+
+[tool.setuptools.packages.find]
+include = ["prefix_id"]
+
+[project.urls]
+"Homepage" = "https://github.com/jaddison/django-prefix-id"
+"Bug Tracker" = "https://github.com/jaddison/django-prefix-id/issues"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+py_version = 311
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "testproject.settings"
+
+[tool.coverage.run]
+branch = true
+source = ["prefix_id",]
+
+[tool.coverage.html]
+directory = "coverage_html"
